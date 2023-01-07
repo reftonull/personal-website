@@ -1,0 +1,24 @@
+---
+const navBarLinks: Array<{ href: string; label: string }> = [
+  {
+    href: "/library",
+    label: "Library",
+  },
+  {
+    href: "/about",
+    label: "About",
+  },
+];
+---
+
+<nav>
+  <div class="flex flex-row pt-6 pb-12">
+    <div class="text-lg font-ellograph">
+      <a href="/">Laksh <span class="">Chakraborty</span></a>
+    </div>
+    <div class="grow"></div>
+    <div class="font-ellograph flex gap-6">
+      {navBarLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+    </div>
+  </div>
+</nav>
