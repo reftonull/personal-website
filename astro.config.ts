@@ -32,7 +32,7 @@ export default defineConfig({
                   return (
                     value.type === "element" &&
                     (value.tagName === "h1" ||
-                      value.properties!.className === "heading")
+                      value.properties!.className === "md-heading")
                   );
                 })
                 .findIndex((value) => {
@@ -40,7 +40,7 @@ export default defineConfig({
                 });
 
               if (node.type === "element") {
-                const copy = { ...node };
+                const copy = JSON.parse(JSON.stringify(node));
                 node.tagName = "div";
                 node.properties!.className = "md-heading";
 
@@ -49,8 +49,14 @@ export default defineConfig({
                   tagName: "div",
                   children: [
                     {
-                      type: "text",
-                      value: String(headingNum + 1),
+                      type: "element",
+                      tagName: "div",
+                      children: [
+                        {
+                          type: "text",
+                          value: String(headingNum + 1),
+                        },
+                      ],
                     },
                   ],
                 };

@@ -1,14 +1,21 @@
+---
+const { b1, b2, b3 } = Astro.props;
+---
+
 <div class="pointer-events-none">
   <div
-    class="absolute -z-50 -top-64 -left-64 w-[50rem] h-[50rem] rounded-full bg-red-300 mix-blend-multiply blur-3xl animate-blob"
+    class={b1 +
+      " absolute -z-50 -top-64 -left-64 w-[50rem] h-[50rem] rounded-full mix-blend-multiply blur-3xl animate-blob"}
   >
   </div>
   <div
-    class="absolute -z-50 -top-64 -left-64 w-[50rem] h-[50rem] rounded-full bg-yellow-300 mix-blend-multiply blur-3xl animate-blob animation-delay-8000"
+    class={b2 +
+      " absolute -z-50 -top-64 -left-64 w-[50rem] h-[50rem] rounded-full mix-blend-multiply blur-3xl animate-blob animation-delay-8000"}
   >
   </div>
   <div
-    class="absolute -z-50 -top-64 -left-64 w-[50rem] h-[50rem] rounded-full bg-orange-300 mix-blend-multiply blur-3xl animate-blob animation-delay-16000"
+    class={b3 +
+      " absolute -z-50 -top-64 -left-64 w-[50rem] h-[50rem] rounded-full mix-blend-multiply blur-3xl animate-blob animation-delay-16000"}
   >
   </div>
 </div>
