@@ -7,6 +7,8 @@
 @layer base {
   html {
     font-family: ellograph-cf, system-ui, sans-serif !important;
+  }
+  #main-wrapper {
     overflow-x: hidden;
   }
 }

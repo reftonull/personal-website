@@ -14,14 +14,16 @@ const { title } = Astro.props;
 <html lang="en">
   <BaseHeader title={title} description="" />
   <body>
-    <main class="m-auto max-w-screen-lg">
-      <div class="mx-6">
-        <NavBar />
-        <div class="min-h-screen">
-          <slot />
+    <div id="main-wrapper">
+      <main class="m-auto max-w-screen-lg">
+        <div class="mx-6">
+          <NavBar />
+          <div class="min-h-screen">
+            <slot />
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
-    </main>
+      </main>
+    </div>
   </body>
 </html>
