@@ -7,10 +7,10 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
-  <Blobs b1="bg-violet-300" b2="bg-fuchsia-300" b3="bg-pink-300" />
+  <Blobs b1={frontmatter.colors.b1} b2={frontmatter.colors.b2} b3={frontmatter.colors.b3} />
   <div class="grid sm:grid-cols-2 gap-12 sm:gap-6">
     <div class="self-center">
-      <h1 class="font-superior md:text-6xl text-5xl leading-snug">
+      <h1 class="font-superior md:text-6xl text-5xl leading-snug pb-8">
         {frontmatter.title}
       </h1>
       <p class="font-thin">{frontmatter.description}</p>

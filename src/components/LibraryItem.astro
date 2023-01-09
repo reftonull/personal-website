@@ -1,0 +1,19 @@
+---
+import { Image } from "@astrojs/image/components";
+
+const { item, isBook } = Astro.props;
+---
+
+<div>
+  <a href={item.link}>
+    <Image
+      src={item.image}
+      alt={item.title}
+      width={320}
+      aspectRatio={isBook ? 2 / 3 : 1 / 1}
+      class="rounded-lg"
+    />
+    <div>{item.title}</div>
+    <div class="font-light">{item.authors}</div>
+  </a>
+</div>

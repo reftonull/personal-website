@@ -1,5 +1,52 @@
 ---
+import Blobs from "../components/Blobs.astro";
+import LibraryItem from "../components/LibraryItem.astro";
 import Layout from "../layouts/Layout.astro";
+
+const books = await Astro.glob("../library/books/*.md");
+const podcasts = await Astro.glob("../library/podcasts/*.md");
+const youtube = await Astro.glob("../library/youtube/*.md");
 ---
 
-<Layout title="Library" />
+<Layout title="Library">
+  <Blobs b1="bg-emerald-300" b2="bg-cyan-300" b3="bg-blue-300" />
+  <h1 class="font-superior md:text-6xl text-5xl leading-snug my-6">Library</h1>
+  <p class="font-light pb-6">
+    This is what I'm descrying right now! Clicking on the thumbnails will take
+    you to their website, Storygraph, or Youtube.
+  </p>
+  <div class="grid grid-cols-1 sm:grid-cols-2">
+    <div class="border-b sm:border-0 sm:border-r border-black pb-6">
+      <h2 class="font-superior text-3xl leading-snug my-6">Books</h2>
+      <div class="grid grid-cols-2 grid-flow-row gap-6 sm:pr-6">
+        {
+          books.map((book) => (
+            <LibraryItem item={book.frontmatter} isBook={true} />
+          ))
+        }
+      </div>
+    </div>
+    <div class="flex flex-col pb-6">
+      <div class="border-b border-black sm:pl-6 pb-6">
+        <h2 class="font-superior text-3xl leading-snug my-6">Podcasts</h2>
+        <div class="grid grid-cols-2 grid-flow-row gap-6">
+          {
+            podcasts.map((pod) => (
+              <LibraryItem item={pod.frontmatter} isBook={false} />
+            ))
+          }
+        </div>
+      </div>
+      <div class="sm:pl-6">
+        <h2 class="font-superior text-3xl leading-snug my-6">Youtube</h2>
+        <div class="grid grid-cols-2 grid-flow-row gap-6">
+          {
+            youtube.map((yt) => (
+              <LibraryItem item={yt.frontmatter} isBook={false} />
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>

@@ -1,9 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Blobs from "../components/Blobs.astro";
+
+const projects = await Astro.glob("./projects/*.mdx");
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Laksh Chakraborty">
   <Blobs b1="bg-red-300" b2="bg-yellow-300" b3="bg-orange-300" />
   <h1 class="font-superior md:text-7xl text-5xl leading-snug mt-6">
     Hello, I'm Laksh.<br />I'm a developer.
@@ -13,4 +15,56 @@ import Blobs from "../components/Blobs.astro";
     teaching and puzzle solving.
   </p>
   <div class="h-px bg-black my-4"></div>
+  <div class="flex flex-col gap-32 pt-12">
+    {
+      projects.map((project, index) => (
+        <a href={project.url}>
+          <article class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <div class="flex flex-col sm:col-span-2 grid-rows-none self-center">
+              <div class="grid grid-cols-5 border-b border-black">
+                <div class="col-span-4 pt-6 pr-6 pb-6 border-r border-black">
+                  <h1 class="font-superior md:text-5xl text-3xl">
+                    {project.frontmatter.title}
+                  </h1>
+                </div>
+                <div class="text-2xl self-center text-center">{index + 1}</div>
+              </div>
+              <div class="grid grid-cols-5">
+                <div class="col-span-3 font-thin border-r border-black pt-3 pr-4 pb-2">
+                  {project.frontmatter.description}
+                </div>
+                <div class="col-span-2 font-thin pt-3 px-4 pb-2">
+                  <>
+                    <span class="font-bold">Stack</span>
+                    <br />
+                  </>
+                  {project.frontmatter.stack}
+                </div>
+              </div>
+            </div>
+
+            <img
+              src={project.frontmatter.image}
+              alt="Image"
+              class="full-width-thumb m-auto mix-blend-normal rounded-2xl bg-blend-normal"
+            />
+          </article>
+        </a>
+      ))
+    }
+  </div>
 </Layout>
+
+<style>
+  @media only screen and (min-width: 640px) {
+    .full-width-thumb {
+      left: 50vw;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      max-width: 80vw;
+      position: relative;
+      right: 50%;
+      max-height: 50vh;
+    }
+  }
+</style>
