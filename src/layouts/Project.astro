@@ -1,0 +1,17 @@
+---
+import Layout from "./Layout.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+  <div class="prose prose-headings:font-superior">
+    <slot />
+  </div>
+</Layout>
+
+<style is:global>
+  .md-heading {
+    @apply text-red-500
+  }
+</style>
