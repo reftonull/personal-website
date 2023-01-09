@@ -1,4 +1,5 @@
 ---
+import BaseHeader from "../components/BaseHeader.astro";
 import Footer from "../components/Footer.astro";
 import NavBar from "../components/NavBar.astro";
 
@@ -11,13 +12,7 @@ const { title } = Astro.props;
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
-  </head>
+  <BaseHeader title={title} description="" />
   <body>
     <main class="m-auto max-w-screen-lg">
       <div class="mx-6">
@@ -29,26 +24,4 @@ const { title } = Astro.props;
       </div>
     </main>
   </body>
-  <style is:global>
-    @import url("https://use.typekit.net/zbf1ewp.css");
-
-    @tailwind base;
-    @tailwind components;
-    @tailwind utilities;
-
-    @layer base {
-      html {
-        font-family: ellograph-cf, system-ui, sans-serif;
-      }
-    }
-
-    @layer utilities {
-      .animation-delay-8000 {
-        animation-delay: -8s;
-      }
-      .animation-delay-16000 {
-        animation-delay: -16s;
-      }
-    }
-  </style>
 </html>
