@@ -12,10 +12,10 @@ import rehypeRewrite from "rehype-rewrite";
 import type { Root, Element } from "hast";
 
 // https://astro.build/config
-import vercel from "@astrojs/vercel/serverless";
+// import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
-import netlify from "@astrojs/netlify/functions";
+// import netlify from "@astrojs/netlify/functions";
 
 // https://astro.build/config
 export default defineConfig({
@@ -51,6 +51,6 @@ export default defineConfig({
       }
     }]]
   })],
-  output: "server",
-  adapter: vercel()
+  // output: "server",
+  // adapter: vercel()
 });
