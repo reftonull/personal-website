@@ -15,6 +15,9 @@ import type { Root, Element } from "hast";
 import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
+import netlify from "@astrojs/netlify/functions";
+
+// https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), image({
     serviceEntryPoint: "@astrojs/image/sharp"
@@ -49,5 +52,5 @@ export default defineConfig({
     }]]
   })],
   output: "server",
-  adapter: vercel()
+  adapter: netlify()
 });
