@@ -2,18 +2,41 @@
 import { Image } from "@astrojs/image/components";
 import Blobs from "../components/Blobs.astro";
 import Layout from "./Layout.astro";
+import { Icon } from "astro-icon";
+
+import github from "../images/github-mark.png";
 
 const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
-  <Blobs b1={frontmatter.colors.b1} b2={frontmatter.colors.b2} b3={frontmatter.colors.b3} />
+  <Blobs
+    b1={frontmatter.colors.b1}
+    b2={frontmatter.colors.b2}
+    b3={frontmatter.colors.b3}
+  />
   <div class="grid sm:grid-cols-2 gap-12 sm:gap-6">
-    <div class="self-center">
-      <h1 class="font-superior md:text-6xl text-5xl leading-snug pb-8">
+    <div class="self-center flex flex-col gap-8">
+      <h1 class="font-superior md:text-6xl text-5xl leading-snug">
         {frontmatter.title}
       </h1>
       <p class="font-thin">{frontmatter.description}</p>
+      <div class="flex flex-row gap-8 items-center">
+        {
+          frontmatter.github && (
+            <a href={frontmatter.github}>
+              <Image src={github} alt="Github Logo" width={40} />
+            </a>
+          )
+        }
+        {
+          frontmatter.deploy && (
+            <a href={frontmatter.deploy}>
+              <Icon name="ph:app-window-fill" class=" w-12" />
+            </a>
+          )
+        }
+      </div>
     </div>
     <img
       src={frontmatter.image}
