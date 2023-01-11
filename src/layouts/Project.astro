@@ -73,14 +73,16 @@ const { frontmatter } = Astro.props;
 
   <div class="h-px bg-black my-20"></div>
 
-  <div class="prose prose-headings:font-superior sm:ml-16 mr-0">
-    <slot />
+  <div class="flex justify-center">
+    <div class="prose prose-headings:font-superior sm:ml-16 prose-h1:mb-0 mr-0">
+      <slot />
+    </div>
   </div>
 </Layout>
 
 <style is:global>
   .md-heading {
-    @apply flex sm:-ml-16 flex-col sm:flex-row;
+    @apply flex sm:-ml-16 flex-col sm:flex-row mb-2 pt-4;
     gap: 1.5rem;
   }
 
