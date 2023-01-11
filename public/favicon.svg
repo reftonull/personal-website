@@ -1,13 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 36 36">
-  <path fill="#000" d="M22.25 4h-8.5a1 1 0 0 0-.96.73l-5.54 19.4a.5.5 0 0 0 .62.62l5.05-1.44a2 2 0 0 0 1.38-1.4l3.22-11.66a.5.5 0 0 1 .96 0l3.22 11.67a2 2 0 0 0 1.38 1.39l5.05 1.44a.5.5 0 0 0 .62-.62l-5.54-19.4a1 1 0 0 0-.96-.73Z"/>
-  <path fill="url(#gradient)" d="M18 28a7.63 7.63 0 0 1-5-2c-1.4 2.1-.35 4.35.6 5.55.14.17.41.07.47-.15.44-1.8 2.93-1.22 2.93.6 0 2.28.87 3.4 1.72 3.81.34.16.59-.2.49-.56-.31-1.05-.29-2.46 1.29-3.25 3-1.5 3.17-4.83 2.5-6-.67.67-2.6 2-5 2Z"/>
-  <defs>
-    <linearGradient id="gradient" x1="16" x2="16" y1="32" y2="24" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#000"/>
-      <stop offset="1" stop-color="#000" stop-opacity="0"/>
-    </linearGradient>
-  </defs>
-	<style>
+<svg width="334" height="335" viewBox="0 0 334 335" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_16_9)">
+<mask id="mask0_16_9" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="-1" y="0" width="335" height="335">
+<rect x="-1" width="335" height="335" rx="22" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_16_9)">
+<mask id="path-2-inside-1_16_9" fill="white">
+<rect x="-1" width="335" height="335" rx="22"/>
+</mask>
+<rect x="-1" width="335" height="335" rx="22" stroke="black" stroke-width="54" mask="url(#path-2-inside-1_16_9)"/>
+<path d="M-13.2238 320.717L107.477 127.313L228.178 320.717H-13.2238Z" stroke="black" stroke-width="27"/>
+<path d="M104.822 320.717L225.523 127.313L346.224 320.717H104.822Z" stroke="black" stroke-width="27"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_16_9">
+<rect width="334" height="335" fill="white"/>
+</clipPath>
+</defs>
+	<!-- <style>
     @media (prefers-color-scheme:dark){:root{filter:invert(100%)}}
-  </style>
+  </style> -->
 </svg>
