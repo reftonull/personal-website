@@ -5,14 +5,15 @@ import NavBar from "../components/NavBar.astro";
 
 export interface Props {
   title: string;
+  description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-  <BaseHeader title={title} description="" />
+  <BaseHeader title={title} description={description} />
   <body>
     <div id="main-wrapper">
       <main class="m-auto max-w-screen-lg">

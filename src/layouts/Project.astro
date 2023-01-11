@@ -9,7 +9,7 @@ import github from "../images/github-mark.png";
 const { frontmatter } = Astro.props;
 ---
 
-<Layout title={frontmatter.title}>
+<Layout title={frontmatter.title} description={frontmatter.description}>
   <Blobs
     b1={frontmatter.colors.b1}
     b2={frontmatter.colors.b2}
