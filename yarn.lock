@@ -758,6 +758,11 @@ abbrev@1:
   resolved "https://registry.yarnpkg.com/abbrev/-/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"
   integrity sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==
 
+accessible-astro-components@^1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/accessible-astro-components/-/accessible-astro-components-1.6.2.tgz#087108e3233aeced176fea4a53c1218cdb9cbde8"
+  integrity sha512-WbziH48V8iMgMz/ObacNgn1OpMRVyo7gnOL1pADzbf9KMfWc1wuh4EwTqY9gWPyppPTjt6utfj1Bu9FTb8Fw7Q==
+
 acorn-jsx@^5.0.0, acorn-jsx@^5.3.2:
   version "5.3.2"
   resolved "https://registry.yarnpkg.com/acorn-jsx/-/acorn-jsx-5.3.2.tgz#7ed5bb55908b3b2f1bc55c6af1653bada7f07937"

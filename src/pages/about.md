@@ -13,7 +13,7 @@ overall aim at college is to formalize this "dabbling".
 College has given me the opportunity and time to branch out into other
 interests; I've learned about everything from Egypt in the late BCEs to analysis
 of photographs from the Second World War. All of this is circumscribed by my
-passion for learning; More than anything, I'm an puzzle solver: trying to make
+passion for learning. More than anything, I'm an puzzle solver: trying to make
 disparate things in disparate fields fit together to give a meaningful result.
 This exploration led me to discover my enthusiasm for teaching. I currently work
 as a Learning Assistant at NYU's University Learning Center, where I tutor

@@ -1,9 +1,39 @@
 ---
 import { Image } from "@astrojs/image/components";
-const { src, alt } = Astro.props;
+const { src, alt, id } = Astro.props;
+import { Modal } from "accessible-astro-components";
 ---
 
-<figure>
-  <Image src={src} alt={alt} class="rounded-xl"/>
+<button id={id} class="text-left hidden md:inline">
+  <figure>
+    <Image src={src} alt={alt} class="rounded-xl" />
+    <figcaption class="ml-2">{alt}</figcaption>
+  </figure>
+</button>
+
+<figure class="block md:hidden">
+  <Image src={src} alt={alt} class="rounded-xl" />
   <figcaption class="ml-2">{alt}</figcaption>
 </figure>
+
+<Modal triggerId={id}>
+  <figure>
+    <Image src={src} alt={alt} class="rounded-xl" />
+    <figcaption class="ml-2 mt-2">{alt}</figcaption>
+  </figure>
+</Modal>
+
+<style is:global>
+  .modal__inner {
+    @apply border-0;
+    width: clamp(30ch, 90%, 100ch);
+  }
+
+  .modal__content {
+    @apply gap-0 p-4 pb-3;
+  }
+
+  .modal__close {
+    @apply hidden;
+  }
+</style>

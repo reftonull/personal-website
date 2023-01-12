@@ -18,12 +18,46 @@ github: https://github.com/ulcnyu/ulc-schedule-maker-v2
 ---
 
 import Figure from "../../components/Figure.astro";
+import PhotoGrid from "../../components/PhotoGrid.astro";
 import calendars from "../../images/usm-3.png";
 import output from "../../images/usm-4.png";
 import courseDash from "../../images/usm-5.png";
 import courseSearch from "../../images/usm-6.png";
 import addCourse from "../../images/usm-7.png";
 import blurbMaker from "../../images/usm-8.png";
+
+<PhotoGrid>
+  <Figure
+    src={calendars}
+    alt="Page to choose calendars and 'staging week', the week used to make schedules."
+    id="fig-1"
+  />
+  <Figure
+    src={output}
+    alt="Schedule maker output, with days and times for various courses."
+    id="fig-2"
+  />
+  <Figure
+    src={courseDash}
+    alt="Course dashboard for specifying courses that the ULC supports."
+    id="fig-3"
+  />
+  <Figure
+    src={courseSearch}
+    alt="Course search, using our database containing every course NYU offers."
+    id="fig-4"
+  />
+  <Figure
+    src={addCourse}
+    alt="Add Course, should our database somehow not contain the course the user is looking for."
+    id="fig-5"
+  />
+  <Figure
+    src={blurbMaker}
+    alt="Page to allow Learning Assistants to choose courses, so that we avoid any issues with parsing."
+    id="fig-6"
+  />
+</PhotoGrid>
 
 # Background
 
@@ -33,7 +67,7 @@ seeing a lot of students, largely looking for help with Computer Science, Math,
 and Writing. However, that is far from all we do at the ULC. The ULC offers a
 multitude of courses, the extent of which can be seen on our
 [website](https://www.nyu.edu/ulc). To offer the variety we do, we have a staff
-of around 60 people (and growing!)[^1].
+of around 60 people (and growing!)[^1]
 
 Our directors have the unenviable task of making our schedules, from
 availability we send over, and then figuring out what times each class is
@@ -179,39 +213,47 @@ With that overall approach, we tackled the features we wanted to implement:
 # Results
 
 We ended up with a product that I am fairly proud of. It solves a specific
-problem that we faced, and speed up the creation of the schedule for the
-website, freeing time for our directors to work on things that are more
-important. Screenshots from the project, and descriptions of them, follow.
+problem that we faced, and sped up the creation of the schedule for the website,
+freeing time for our directors to work on things that are more important.
+Screenshots from the project, and descriptions of them, follow.
 
 This project was completed by [Laksh Chakraborty](/about#contact),
 [Bruce Wu](https://www.linkedin.com/in/bruce-x-wu/), and
 [Amani Hernandez](https://www.linkedin.com/in/amanihernandez/), with mentorship
 from [EJ Kim](https://www.linkedin.com/in/ejk483/).
 
-<Figure
-  src={calendars}
-  alt="Page to choose calendars and 'staging week', the week used to make schedules."
-/>
-<Figure
-  src={output}
-  alt="Schedule maker output, with days and times for various courses."
-/>
-<Figure
-  src={courseDash}
-  alt="Course dashboard for specifying courses that the ULC supports."
-/>
-<Figure
-  src={courseSearch}
-  alt="Course search, using our database containing every course NYU offers."
-/>
-<Figure
-  src={addCourse}
-  alt="Add Course, should our database somehow not contain the course the user is looking for."
-/>
-<Figure
-  src={blurbMaker}
-  alt="Page to allow Learning Assistants to choose courses, so that we avoid any issues with parsing."
-/>
+<div class="hidden md:inline">
+  <Figure
+    src={calendars}
+    alt="Page to choose calendars and 'staging week', the week used to make schedules."
+    id="fig-7"
+  />
+  <Figure
+    src={output}
+    alt="Schedule maker output, with days and times for various courses."
+    id="fig-8"
+  />
+  <Figure
+    src={courseDash}
+    alt="Course dashboard for specifying courses that the ULC supports."
+    id="fig-9"
+  />
+  <Figure
+    src={courseSearch}
+    alt="Course search, using our database containing every course NYU offers."
+    id="fig-10"
+  />
+  <Figure
+    src={addCourse}
+    alt="Add Course, should our database somehow not contain the course the user is looking for."
+    id="fig-11"
+  />
+  <Figure
+    src={blurbMaker}
+    alt="Page to allow Learning Assistants to choose courses, so that we avoid any issues with parsing."
+    id="fig-12"
+  />
+</div>
 
 [^1]:
     The return from COVID has been massive for us, and our staff has ballooned;
