@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Blobs from "../components/Blobs.astro";
 
 const projects = await Astro.glob("./projects/*.mdx");
+const nonDraftProjects = projects.filter((project) => !project.frontmatter.draft);
 ---
 
 <Layout
@@ -20,7 +21,7 @@ const projects = await Astro.glob("./projects/*.mdx");
   <div class="h-px bg-black my-4"></div>
   <div class="flex flex-col gap-32 pt-12">
     {
-      projects.map((project, index) => (
+      nonDraftProjects.map((project, index) => (
         <a href={project.url}>
           <article class="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div class="flex flex-col sm:col-span-2 grid-rows-none self-center">

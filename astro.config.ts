@@ -21,6 +21,9 @@ import type { Root, Element } from "hast";
 
 // https://astro.build/config
 export default defineConfig({
+  markdown: {
+    drafts: true,
+  },
   integrations: [
     tailwind(),
     image({
