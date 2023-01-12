@@ -1,6 +1,6 @@
 ---
 title: A Beautifully Foolish Endeavor
 authors: Hank Green
-image: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1576697804l/49003616.jpg
-link: https://www.goodreads.com/book/show/49003616-a-beautifully-foolish-endeavor?ac=1&from_search=true&qid=RAIrLXMgEg&rank=3
+image: https://cdn.thestorygraph.com/mbmk4yomilyo4v3qj2ly511f6oxk 
+link: https://app.thestorygraph.com/books/f654de09-f01a-41be-b4ea-d1797df5ebd0
 ---

@@ -1,6 +1,6 @@
 ---
 title: The Well of Ascension
 authors: Brandon Sanderson
-link: https://www.goodreads.com/book/show/68429.The_Well_of_Ascension
-image: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1480717596l/68429._SY475_.jpg
+link: https://app.thestorygraph.com/books/7ce917d6-3d35-4ce6-9b50-bde9816590c8
+image: https://cdn.thestorygraph.com/dz7u5v9tynszbim0rd996d2dpjx3
 ---

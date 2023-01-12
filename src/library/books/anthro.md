@@ -1,6 +1,6 @@
 ---
 title: The Anthropocene Reviewed
 authors: John Green
-image: https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1616514130l/55145261.jpg
-link: https://www.goodreads.com/book/show/55145261-the-anthropocene-reviewed?ac=1&from_search=true&qid=qcIajZ6k19&rank=2
+image: https://cdn.thestorygraph.com/tcdscj0f92e7rwc57wqj20r45b2p 
+link: https://app.thestorygraph.com/books/51ce0300-10a6-4fd8-b0c5-f16a1c590534
 ---
