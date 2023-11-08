@@ -13,7 +13,7 @@ const { item, isBook } = Astro.props;
       aspectRatio={isBook ? 2 / 3 : 1 / 1}
       class="rounded-lg pb-1"
     />
-    <div class="pl-1">{item.title}</div>
-    <div class="pl-1 font-light">{item.authors}</div>
+    <div class="pl-1 font-semibold text-lg leading-tight">{item.title}</div>
+    <div class="pl-1">{item.authors}</div>
   </a>
 </div>

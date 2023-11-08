@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         superior: ["superior-title", "serif"],
         ellograph: ["ellograph-cf", "monospace"],
+        basic: ["basic-sans", "serif"],
       },
       animation: {
         blob: "blob 25s infinite ease-in-out",

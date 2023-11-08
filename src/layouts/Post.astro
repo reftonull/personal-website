@@ -1,0 +1,38 @@
+---
+import Blobs from "../components/Blobs.astro";
+import Layout from "./Layout.astro";
+
+const { frontmatter } = Astro.props;
+
+const dateOptions: object = {
+	year: "numeric",
+	month: "long",
+	day: "numeric",
+};
+
+const formattedPublishDate = new Date(frontmatter.publishDate).toLocaleDateString(
+	"en-US",
+	dateOptions
+);
+---
+
+<Layout title={frontmatter.title} description={frontmatter.description}>
+  <Blobs
+      b1={frontmatter.colors.b1}
+      b2={frontmatter.colors.b2}
+      b3={frontmatter.colors.b3}
+      />
+      <div class="self-center flex flex-col gap-2">
+        <h1 class="font-superior text-5xl leading-normal">
+          {frontmatter.title}
+        </h1>
+        <div class="font-medium sm:ml-2">{formattedPublishDate}</div>
+      </div>
+      <div class="h-px bg-black my-5"></div>
+      <div class="flex justify-start">
+        <div class="prose prose-headings:font-superior sm:ml-2 prose-h1:mb-0 mr-0">
+          <slot />
+        </div>
+      </div>
+</Layout>
+

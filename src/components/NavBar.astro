@@ -4,6 +4,10 @@ import logo from "../images/logo.png";
 
 const navBarLinks: Array<{ href: string; label: string }> = [
   {
+    href: "/blog",
+    label: "Blog",
+  },
+  {
     href: "/library",
     label: "Library",
   },
@@ -21,7 +25,7 @@ const navBarLinks: Array<{ href: string; label: string }> = [
       <a href="/"><Image src={logo} alt="Logo" class="w-12" /></a>
     </div>
     <div class="grow"></div>
-    <div class="font-ellograph flex gap-6 text-md sm:text-lg">
+    <div class="flex gap-6 text-md sm:text-lg">
       {navBarLinks.map((link) => <a href={link.href}>{link.label}</a>)}
     </div>
   </div>
