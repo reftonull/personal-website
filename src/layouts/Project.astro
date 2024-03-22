@@ -32,7 +32,14 @@ const { frontmatter } = Astro.props;
         {
           frontmatter.deploy && (
             <a href={frontmatter.deploy}>
-              <Icon name="ph:app-window-fill" class=" w-12" />
+              <Icon name="ph:app-window-fill" class="w-12" />
+            </a>
+          )
+        }
+        {
+          frontmatter.appstore && (
+            <a href={frontmatter.appstore}>
+              <Icon name="appstore-mark" class="w-36" />
             </a>
           )
         }

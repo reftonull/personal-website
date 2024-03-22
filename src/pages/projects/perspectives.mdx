@@ -1,0 +1,88 @@
+---
+layout: ../../layouts/Project.astro
+title: "Perspectives: To-Do List"
+image: /images/perspectives-1.jpeg
+description: "Perspectives is an app for iOS, iPadOS, and visionOS designed to
+get distractions out of the way and help you focus on the important things."
+objective: "To fill a hole in the task management app market, focusing on a simple,
+but powerful user experience."
+year: 2023 — Present
+timeline: 4 months to 1.0
+languages: Swift
+stack: SwiftUI, UIKit, The Composable Architecture, SQLite, CloudKit
+colors: { b1: "bg-cyan-200", b2: "bg-blue-200", b3: "bg-indigo-200" }
+appstore: https://apps.apple.com/us/app/perspectives-to-do-list/id6476648057
+---
+
+import Figure from "../../components/Figure.astro";
+import appStore from "../../images/perspectives-2.jpeg";
+
+# Why
+
+The world of to-do list apps is a dichotomy. On one hand, it seems as though there is an infinite amount of them, which makes them feel like a solved problem. On the other hand, everyone wants something different from their to-do apps, which makes them a design playground.
+
+In the last couple of years, I tried all of the popular ones, from the default Reminders app, to [Todoist](https://todoist.com/), to the somewhat complicated [OmniFocus](https://www.omnigroup.com/omnifocus/). Everything left me wanting for something else. Reminders had the Apple polish, Todoist had simplicity, and OmniFocus had powerful constructs that let users see only what they wanted to. 
+
+I wanted something that was the best of all of those worlds, but nothing quite managed to fill that niche. So I set out building one myself. I began work on Perspectives in early November 2023. Around 4 months later, in February 2024, [Perspectives](https://apps.apple.com/us/app/perspectives-to-do-list/id6476648057) was live on the App Store on iOS, iPadOS, and visionOS.
+
+Perspectives remains one of a small number of task management apps built natively for the Apple Vision Pro, and was recently featured on the visionOS App Store by Apple App Store Editorial. [^1]
+
+<Figure
+    src={appStore}
+    alt="Featured on the visionOS App Store by App Store Editorial!"
+    id="fig-1"
+  />
+
+# Guiding Principle
+I worked on Perspectives with one principle in mind: **progressive disclosure**. It is the idea that users should be introduced to complexity as they try to do more complex things.   
+  
+To accomplish this, the app contains four constructs: Tasks, Projects, Tags, and Perspectives.
+
+**Tasks** are the individual to-do items. They have multiple properties, including a dates, descriptions, the project it is in, the tags it is associated with, and more.
+
+**Projects** are where tasks live. Each project can have multiple tasks, but tasks can only have one project.
+
+**Tags** can be associated with tasks to help with cross-project concerns. Tasks can be tagged with multiple tags.
+
+Finally, there are **perspectives**. They are the crux of the app (hence the name), and allow users to filter tasks down to the essentials. For example, a simple one I use a lot is the “This Week” perspective, that shows me all tasks which are due this week. 
+
+> Want to use Perspectives as a standard checklist? Just use projects. Want to split your tasks into low-effort and high-effort? Use tags. Want a combination of these for a complex system? Use perspectives. The power is there when you want it.
+
+# Features
+Task management apps are difficult to build. Apple’s default Reminders app already does all the basics, so I knew I needed to build something that did more. I came up with the following features with the 1.0 release:
+
+1. **Pleasing Design**: The app feels at home on iOS, iPadOS, and visionOS, while also feeling quick and nice to use.
+2. **Great Filters**: Perspectives have powerful filters that let you filter on any task properties.
+3. **Task Visibility**: Users can see only what is actionable right now, with task visibility settings that show tasks whose defer date has passed.
+4.  **Powerful Sorting and Grouping**: Each list can be sorted and grouped by any property, allowing you to users to lay their views out in a way that makes sense to them.
+5. **Sync**: Users expect their data to sync between their devices, and I worked hard to make that feel seamless.
+
+This forms the basis of a very expressive task management solution, to which many more features can be added, many of which are already in development.
+
+# Stack and Implementation
+The app is written almost entirely using Swift and SwiftUI. There are times that I had to dip into UIKit, but those were few and far between. SwiftUI still has some rough edges that need to be figured out, but the overall experience is really pleasant. A far cry from where it was when I first used it over four years ago. 
+
+Perspectives is written entirely with [The Composable Architecture (TCA)](https://github.com/pointfreeco/swift-composable-architecture), which made so many things so much easier to reason about. The app has many components that work asynchronously, using Swift’s new concurrency tools, and TCA made it easy to avoid bugs. Much of the app is unit tested (especially the filtering logic and syncing logic), which TCA made possible. The default SwiftUI constructs simply do not have the affordances for this sort of testing, due to them being modeled, almost entirely, using reference types. 
+
+Local caching is very important in an app that is meant to work without an internet connection. To ensure that no data was lost, I needed a way to store everything on-device before sync is able to take over. I began by using the powerful [GRDB](https://github.com/groue/GRDB.swift) library, which is essentially a Swift wrapper around [SQLite](https://www.sqlite.org/). This worked for a time, but I often found that it was too complex for what was essentially just a local cache. I switched to [Boutique](https://github.com/mergesort/Boutique?tab=readme-ov-file), a library that allowed me to think about my models as just being objects in memory, with persistence handled for me. This also made it a whole lot easier to work with my syncing solution.  
+  
+For sync, I used CloudKit through the new [CKSyncEngine](https://developer.apple.com/documentation/cloudkit/cksyncengine) API which was debuted at WWDC 2023. After getting past the teething pains, it was a breeze. However, I did run into one issue. 
+
+[CloudKit](https://developer.apple.com/documentation/cloudkit), Apple’s syncing mechanism, is essentially a NoSQL database in the cloud. GRDB is a SQLite wrapper. It was very difficult to mesh these two database types in a way that was bug-free and easy to develop with. This became a real problem when relationships got involved. My app’s four constructs are intimately linked through many different relationships, and the way relationships are modeled between NoSQL databases and SQLite databases is entirely different. This was difficult enough that I switched to Boutique in the middle of development.   
+  
+It was a big change, but was one that ended up being fairly easy to do because of how I had architected the app. The sync layer, database layer, business logic layer, and UI layer were very well separated, and switching databases only took me around 12 hours of work (including making sure my tests passed).
+
+# Results
+Perspectives is an app I never thought I’d be able to finish. For being a first w:full app, its scope is fairly large, and I had limited time. Overall, I am very proud of what I was able to achieve in the 1.0, and have many updates planned. Go check it out on the [App Store](https://apps.apple.com/us/app/perspectives-to-do-list/id6476648057), and if you like it, please consider leaving a review! 
+
+—
+
+Here are some quick stats: 
+- **Total commits**: 103 (with many rebases)
+- **First commit**: November 6, 2023
+- **App Store release commit**: February 20, 2024
+- **Days to first release**: 107 days
+- **Lines of code**: 13816 lines of Swift, and 1900 of XML/Markdown/Text, for a total of 15716 lines of code.
+
+
+[^1]:	Alongside amazing apps, including Television and Callsheet!
