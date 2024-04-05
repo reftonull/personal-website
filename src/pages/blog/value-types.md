@@ -4,6 +4,7 @@ title: "Value Types: The Swift Conundrum"
 subtitle: "How did we get here?" 
 colors: { b1: "bg-sky-300", b2: "bg-cyan-300", b3: "bg-blue-300" }
 publishDate: 11/12/23
+pubDate: 11/12/23
 draft: true
 ---
 

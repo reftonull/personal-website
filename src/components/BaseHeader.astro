@@ -25,6 +25,12 @@ const { title, description } = Astro.props;
   href="https://use.typekit.net/zbf1ewp.css"
   as="style"
 />
+<link
+    rel="alternate"
+    type="application/rss+xml"
+    title="Laksh Chakraborty"
+    href={`${Astro.site}rss.xml`}
+/>
 <meta name="generator" content={Astro.generator} />
 <!-- Primary Meta Tags -->
 <title>{title}</title>

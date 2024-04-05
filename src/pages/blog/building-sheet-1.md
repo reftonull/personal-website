@@ -4,6 +4,7 @@ title: "SwiftUI API Design: Sheet I"
 subtitle: "This series of posts will take you through not only how to make a sheet modifier in SwiftUI, but also how to think about SwiftUI API design, and how Apple seems to approach it. Along the way, I'll show you a few fun SwiftUI tricks that can help make your code more modular and more readable!"
 colors: { b1: "bg-sky-200", b2: "bg-cyan-200", b3: "bg-blue-200" }
 publishDate: 04/05/24
+pubDate: 04/05/24
 draft: false
 ---
 
@@ -96,7 +97,7 @@ First, let us see what look we are targeting for our new sheet modifier. We’re
 
 First, let’s try to achieve the style with no view modifiers. Just VStacks and ZStacks.
 
-I wrote a simple View that will be my sheet’s content, trying to match the screenshot above. It’s not important to this post, but here’s [the code](). This is what it looks like:
+I wrote a simple View that will be my sheet’s content, trying to match the screenshot above. It’s not important to this post, but here’s [the code](https://github.com/reftonull/ExploringSheet/blob/main/SheetExploration/ContentView.swift). This is what it looks like:
 ![The above sheet as a SwiftUI View](/images/blog/sheet-1/inner_view.png)
 
 Now we move to the actual sheet. 
@@ -311,5 +312,7 @@ Much nicer! It already looks fairly similar to SwiftUI’s sheet. There are some
 4. We haven’t even begun thinking about how to implement the various view modifiers that affect SwiftUI’s sheet presentation.
 
 For now, though, this is good. We’ll tackle all these issues in Part II.
+
+All the code for this project is on [Github](https://github.com/reftonull/ExploringSheet)
 
 [^1]: For more information on SwiftUI API design, watch the session titled [_The craft of SwiftUI API design_](https://developer.apple.com/videos/play/wwdc2022/10059/) from WWDC22
