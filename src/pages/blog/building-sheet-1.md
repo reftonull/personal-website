@@ -92,12 +92,12 @@ For now, let's implement the simple case.
 
 First, let us see what look we are targeting for our new sheet modifier. We’re going to try and recreate this sheet that apple uses for many of its apps, including spacial audio, and to show AirPods battery status.
 
-![The sheet we're attempting to replicate. A sheet with the title "Personalized Spatial Audio," which has two buttons at the bottom, titled "Get Started" and "Not Now"](/public/images/blog/sheet-1/spatial_audio.jpg)
+![The sheet we're attempting to replicate. A sheet with the title "Personalized Spatial Audio," which has two buttons at the bottom, titled "Get Started" and "Not Now"](/images/blog/sheet-1/spatial_audio.jpg)
 
 First, let’s try to achieve the style with no view modifiers. Just VStacks and ZStacks.
 
 I wrote a simple View that will be my sheet’s content, trying to match the screenshot above. It’s not important to this post, but here’s [the code](). This is what it looks like:
-![The above sheet as a SwiftUI View](/public/images/blog/sheet-1/inner_view.png)
+![The above sheet as a SwiftUI View](/images/blog/sheet-1/inner_view.png)
 
 Now we move to the actual sheet. 
 
@@ -197,12 +197,12 @@ There’s a lot of modifiers here, so let’s go line by line:
 10. An overlay to darken the view behind the sheet.
 
 Here is what it looks like:
-![The above View in a sheet](/public/images/blog/sheet-1/sheet.png)
+![The above View in a sheet](/images/blog/sheet-1/sheet.png)
 
 
 And here it is in action:
 <video width="320" height="240" controls>
-  <source src="/public/images/blog/sheet-1/sheet_video.mp4" type="video/mp4">
+  <source src="/images/blog/sheet-1/sheet_video.mp4" type="video/mp4">
 </video>
 
 
