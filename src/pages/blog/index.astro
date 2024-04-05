@@ -8,57 +8,56 @@ let posts = await Astro.glob("./*.md");
 const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
 
 const dateOptions: object = {
-	year: "numeric",
-	month: "long",
-	day: "numeric",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
 };
 
-let formattedPosts = nonDraftPosts.map(post => {
-  const formattedPublishDate = new Date(post.frontmatter.publishDate).toLocaleDateString(
-    "en-US",
-    dateOptions
-  );
-  return {
-    ...post,
-    formattedPublishDate
-  }
-})
+let formattedPosts = nonDraftPosts.map((post) => {
+    const formattedPublishDate = new Date(
+        post.frontmatter.publishDate
+    ).toLocaleDateString("en-US", dateOptions);
+    return {
+        ...post,
+        formattedPublishDate,
+    };
+});
 ---
 
-<Layout
-    title="Blog"
-    description="My blog where I discuss all things tech!"
-    >
+<Layout title="Blog" description="My blog where I discuss all things tech!">
     <Blobs b1="#fcc7fb" b2="#ffe1c2" b3="#ffbdfc" />
     {
-      formattedPosts.map((post) => (
-        <a href={post.url}>
-          <article>
-            <div class="flex flex-col sm:col-span-2 grid-rows-none self-center">
-              <div class="grid grid-cols-5 border-b border-black">
-                <div class="col-span-4 pt-5 pr-5 pb-5 border-r border-black">
-                  <h1 class="font-superior text-5xl">
-                    {post.frontmatter.title}
-                  </h1>
-                  <div class="font-medium sm:ml-2 mt-4">{post.formattedPublishDate}</div>
-                </div>
-                <div class="text-2xl self-center text-center">
-                 <Icon name="ph:arrow-right-light" class="w-12 block m-auto" />
-                </div>
-              </div>
-            </div>
-            <div class="prose prose-headings:font-superior sm:ml-2 prose-h1:mb-0 mr-0">
-              <div set:html={ post.compiledContent() }></div>
-            </div>
-          </article>
-        </a>
-      ))
+        formattedPosts.map((post) => (
+            <a href={post.url}>
+                <article>
+                    <div class="flex flex-col sm:col-span-2 grid-rows-none self-center">
+                        <div class="grid grid-cols-5 border-b border-black">
+                            <div class="col-span-4 pt-5 pr-5 pb-5 border-r border-black">
+                                <h1 class="font-superior text-5xl">
+                                    {post.frontmatter.title}
+                                </h1>
+                                <div class="font-medium sm:ml-2 mt-4">
+                                    {post.formattedPublishDate}
+                                </div>
+                            </div>
+                            <div class="text-2xl self-center text-center">
+                                <Icon
+                                    name="ph:arrow-right-light"
+                                    class="w-12 block m-auto"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="py-6 sm:ml-2 prose-h1:mb-0 mr-0 no-underline">
+                        <div set:html={post.frontmatter.subtitle} />
+                    </div>
+                </article>
+            </a>
+        ))
     }
     {
-      formattedPosts.length == 0 && (
-      <h1 class="text-center text-5xl mt-10">
-        Coming Soon!
-      </h1>
-      )
+        formattedPosts.length == 0 && (
+            <h1 class="text-center text-5xl mt-10">Coming Soon!</h1>
+        )
     }
 </Layout>

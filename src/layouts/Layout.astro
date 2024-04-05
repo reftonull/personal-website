@@ -4,8 +4,8 @@ import Footer from "../components/Footer.astro";
 import NavBar from "../components/NavBar.astro";
 
 export interface Props {
-  title: string;
-  description: string;
+    title: string;
+    description: string;
 }
 
 const { title, description } = Astro.props;
@@ -13,18 +13,18 @@ const { title, description } = Astro.props;
 
 <!DOCTYPE html>
 <html lang="en">
-  <BaseHeader title={title} description={description} />
-  <body>
-    <div id="main-wrapper">
-      <main class="m-auto max-w-screen-lg">
-        <div class="mx-6">
-          <NavBar />
-          <div class="min-h-screen">
-            <slot />
-          </div>
-          <Footer />
+    <BaseHeader title={title} description={description} />
+    <body>
+        <div id="main-wrapper">
+            <main class="m-auto max-w-screen-lg">
+                <div class="mx-6">
+                    <NavBar />
+                    <div class="min-h-screen">
+                        <slot />
+                    </div>
+                    <Footer />
+                </div>
+            </main>
         </div>
-      </main>
-    </div>
-  </body>
+    </body>
 </html>
