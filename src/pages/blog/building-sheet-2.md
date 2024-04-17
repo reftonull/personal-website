@@ -219,7 +219,7 @@ I suspect that this also explains why this fixes later sheet presentations: Swif
 
 You can try this yourself! In the above code, set a breakpoint on the body first line of the body property. You will see that the breakpoint isn’t hit the first time the bindings are changed, but is hit the subsequent times.
 
-This is fascinating, and seems very odd indeed. Of course, this sleuthing is my best guess. SwiftUI works in a lot of magical ways, so if you have more insight, or a correction to something I’ve written about here, [let me know](http://localhost:4321/about#contact)!
+This is fascinating, and seems very odd indeed. Of course, this sleuthing is my best guess. SwiftUI works in a lot of magical ways, so if you have more insight, or a correction to something I’ve written about here, [let me know](https://lakshchakraborty.com/about#contact)!
 
 # Back to `item`
 
