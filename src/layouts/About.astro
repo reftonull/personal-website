@@ -2,26 +2,28 @@
 import Blobs from "../components/Blobs.astro";
 import Layout from "../layouts/Layout.astro";
 import profile from "../images/profile.jpeg";
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 ---
 
 <Layout title="About Me">
-  <Blobs b1="bg-sky-200" b2="bg-purple-200" b3="bg-blue-200" />
-  <h1 class="font-superior md:text-6xl text-5xl leading-snug my-6">About Me</h1>
-  <div class="flex gap-6 flex-col-reverse md:flex-row md:content-center">
-    <div>
-      <div class="max-w-prose prose prose-headings:font-superior">
-        <slot />
-      </div>
+    <Blobs b1="bg-sky-200" b2="bg-purple-200" b3="bg-blue-200" />
+    <h1 class="font-superior md:text-6xl text-5xl leading-snug my-6">
+        About Me
+    </h1>
+    <div class="flex gap-6 flex-col-reverse md:flex-row md:content-center">
+        <div>
+            <div class="max-w-prose prose prose-headings:font-superior">
+                <slot />
+            </div>
+        </div>
+        <div class="md:self-start self-center">
+            <div class="border-8 rounded-2xl inline-block border-white">
+                <Image
+                    src={profile}
+                    alt="Profile picture of me sitting with a little doggo."
+                    class="md:max-w-xs mix-blend-normal rounded-lg bg-blend-normal"
+                />
+            </div>
+        </div>
     </div>
-    <div class="md:self-start self-center">
-      <div class="border-8 rounded-2xl inline-block border-white">
-        <Image
-          src={profile}
-          alt="Profile picture of me sitting with a little doggo."
-          class="md:max-w-xs mix-blend-normal rounded-lg bg-blend-normal"
-        />
-      </div>
-    </div>
-  </div>
 </Layout>

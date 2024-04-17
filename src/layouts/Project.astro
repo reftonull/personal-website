@@ -1,5 +1,5 @@
 ---
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 import Blobs from "../components/Blobs.astro";
 import Layout from "./Layout.astro";
 import { Icon } from "astro-icon";
@@ -10,112 +10,119 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title} description={frontmatter.description}>
-  <Blobs
-    b1={frontmatter.colors.b1}
-    b2={frontmatter.colors.b2}
-    b3={frontmatter.colors.b3}
-  />
-  <div class="grid sm:grid-cols-2 gap-12 sm:gap-6">
-    <div class="self-center flex flex-col gap-8">
-      <h1 class="font-superior md:text-6xl text-5xl leading-snug">
-        {frontmatter.title}
-      </h1>
-      <p class="font-thin">{frontmatter.description}</p>
-      <div class="flex flex-row gap-8 items-center">
-        {
-          frontmatter.github && (
-            <a href={frontmatter.github}>
-              <Image src={github} alt="Github Logo" width={40} />
-            </a>
-          )
-        }
-        {
-          frontmatter.deploy && (
-            <a href={frontmatter.deploy}>
-              <Icon name="ph:app-window-fill" class="w-12" />
-            </a>
-          )
-        }
-        {
-          frontmatter.appstore && (
-            <a href={frontmatter.appstore}>
-              <Icon name="appstore-mark" class="w-36" />
-            </a>
-          )
-        }
-      </div>
-    </div>
-    <img
-      src={frontmatter.image}
-      alt="Image"
-      class="full-width mix-blend-normal rounded-2xl bg-blend-normal object-cover"
+    <Blobs
+        b1={frontmatter.colors.b1}
+        b2={frontmatter.colors.b2}
+        b3={frontmatter.colors.b3}
     />
-  </div>
-  <div class="h-px bg-black my-20"></div>
-  <div class="grid grid-cols-1 sm:grid-cols-2 font-bold">
-    <div
-      class="border-b pb-4 sm:pb-0 sm:pr-6 sm:pt-2 sm:border-b-0 sm:border-r border-black"
-    >
-      Objective<br /><span class="font-thin">{frontmatter.objective}</span>
+    <div class="grid sm:grid-cols-2 gap-12 sm:gap-6">
+        <div class="self-center flex flex-col gap-8">
+            <h1 class="font-superior md:text-6xl text-5xl leading-snug">
+                {frontmatter.title}
+            </h1>
+            <p class="font-thin">{frontmatter.description}</p>
+            <div class="flex flex-row gap-8 items-center">
+                {
+                    frontmatter.github && (
+                        <a href={frontmatter.github}>
+                            <Image src={github} alt="Github Logo" width={40} />
+                        </a>
+                    )
+                }
+                {
+                    frontmatter.deploy && (
+                        <a href={frontmatter.deploy}>
+                            <Icon name="ph:app-window-fill" class="w-12" />
+                        </a>
+                    )
+                }
+                {
+                    frontmatter.appstore && (
+                        <a href={frontmatter.appstore}>
+                            <Icon name="appstore-mark" class="w-36" />
+                        </a>
+                    )
+                }
+            </div>
+        </div>
+        <img
+            src={frontmatter.image}
+            alt="Image"
+            class="full-width mix-blend-normal rounded-2xl bg-blend-normal object-cover"
+        />
     </div>
-    <div class="grid grid-cols-2 sm:grid-cols-3">
-      <div
-        class="col-span-2 sm:col-span-3 pb-4 pt-4 sm:pl-6 sm:pt-2 border-b border-black"
-      >
-        Stack<br /><span class="font-thin">{frontmatter.stack}</span>
-      </div>
-      <div class="sm:px-6 pt-4 pb-4 sm:pb-3 border-r border-black">
-        Year<br /><span class="font-thin">{frontmatter.year}</span>
-      </div>
-      <div class="px-6 pt-4 pb-4 sm:pb-3 sm:border-r border-black">
-        Timeline<br /><span class="font-thin">{frontmatter.timeline}</span>
-      </div>
-      <div
-        class="sm:px-6 pt-4 border-black border-t col-span-2 sm:col-span-1 sm:border-0"
-      >
-        Languages<br /><span class="font-thin">{frontmatter.languages}</span>
-      </div>
+    <div class="h-px bg-black my-20"></div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 font-bold">
+        <div
+            class="border-b pb-4 sm:pb-0 sm:pr-6 sm:pt-2 sm:border-b-0 sm:border-r border-black"
+        >
+            Objective<br /><span class="font-thin">{frontmatter.objective}</span
+            >
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3">
+            <div
+                class="col-span-2 sm:col-span-3 pb-4 pt-4 sm:pl-6 sm:pt-2 border-b border-black"
+            >
+                Stack<br /><span class="font-thin">{frontmatter.stack}</span>
+            </div>
+            <div class="sm:px-6 pt-4 pb-4 sm:pb-3 border-r border-black">
+                Year<br /><span class="font-thin">{frontmatter.year}</span>
+            </div>
+            <div class="px-6 pt-4 pb-4 sm:pb-3 sm:border-r border-black">
+                Timeline<br /><span class="font-thin"
+                    >{frontmatter.timeline}</span
+                >
+            </div>
+            <div
+                class="sm:px-6 pt-4 border-black border-t col-span-2 sm:col-span-1 sm:border-0"
+            >
+                Languages<br /><span class="font-thin"
+                    >{frontmatter.languages}</span
+                >
+            </div>
+        </div>
     </div>
-  </div>
 
-  <div class="h-px bg-black my-20"></div>
+    <div class="h-px bg-black my-20"></div>
 
-  <div class="flex justify-center">
-    <div class="prose prose-headings:font-superior sm:ml-16 prose-h1:mb-0 mr-0">
-      <slot />
+    <div class="flex justify-center">
+        <div
+            class="prose prose-headings:font-superior sm:ml-16 prose-h1:mb-0 mr-0"
+        >
+            <slot />
+        </div>
     </div>
-  </div>
 </Layout>
 
 <style is:global>
-  .md-heading {
-    @apply flex sm:-ml-16 flex-col sm:flex-row mb-2 pt-4;
-    gap: 1.5rem;
-  }
+    .md-heading {
+        @apply flex sm:-ml-16 flex-col sm:flex-row mb-2 pt-4;
+        gap: 1.5rem;
+    }
 
-  @media only screen and (min-width: 640px) {
-    .md-heading > div {
-      background-image: url("../images/bg-circle.png");
-      background-size: 2.5rem 2.5rem;
-      width: 2.5rem;
-      height: 2.5rem;
-      background-repeat: no-repeat;
-      margin-top: -0.33rem;
-      @apply flex justify-center;
+    @media only screen and (min-width: 640px) {
+        .md-heading > div {
+            background-image: url("../images/bg-circle.png");
+            background-size: 2.5rem 2.5rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            background-repeat: no-repeat;
+            margin-top: -0.33rem;
+            @apply flex justify-center;
+        }
+        .md-heading > div > div {
+            @apply self-center;
+        }
+        .full-width {
+            left: 50vw;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            max-width: 80vw;
+            position: relative;
+            right: 50%;
+            height: 70vh;
+            width: auto;
+            max-height: 70vh;
+        }
     }
-    .md-heading > div > div {
-      @apply self-center;
-    }
-    .full-width {
-      left: 50vw;
-      margin-left: -50vw;
-      margin-right: -50vw;
-      max-width: 80vw;
-      position: relative;
-      right: 50%;
-      height: 70vh;
-      width: auto;
-      max-height: 70vh;
-    }
-  }
 </style>

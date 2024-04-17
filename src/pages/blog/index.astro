@@ -5,7 +5,7 @@ import Blobs from "../../components/Blobs.astro";
 import { Icon } from "astro-icon";
 
 let posts = await Astro.glob("./*.md");
-const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft);
+const nonDraftPosts = posts.filter((post) => !post.frontmatter.draft).reverse();
 
 const dateOptions: object = {
     year: "numeric",
@@ -15,7 +15,7 @@ const dateOptions: object = {
 
 let formattedPosts = nonDraftPosts.map((post) => {
     const formattedPublishDate = new Date(
-        post.frontmatter.publishDate
+        post.frontmatter.publishDate,
     ).toLocaleDateString("en-US", dateOptions);
     return {
         ...post,
@@ -29,7 +29,7 @@ let formattedPosts = nonDraftPosts.map((post) => {
     {
         formattedPosts.map((post) => (
             <a href={post.url}>
-                <article>
+                <article class="pb-12">
                     <div class="flex flex-col sm:col-span-2 grid-rows-none self-center">
                         <div class="grid grid-cols-5 border-b border-black">
                             <div class="col-span-4 pt-5 pr-5 pb-5 border-r border-black">
