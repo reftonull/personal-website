@@ -14,6 +14,7 @@ export async function GET(context) {
             description: post.data.subtitle || post.data.description || '',
             link: `/blog/${post.slug}/`,
             pubDate: new Date(post.data.pubDate || post.data.publishDate),
+            content: post.body,
         })),
     });
 }
