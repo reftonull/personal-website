@@ -1,0 +1,64 @@
+{
+  "$ref": "#/definitions/blog",
+  "definitions": {
+    "blog": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string",
+          "default": ""
+        },
+        "publishDate": {
+          "type": "string"
+        },
+        "pubDate": {
+          "type": "string"
+        },
+        "draft": {
+          "type": "boolean",
+          "default": false
+        },
+        "colors": {
+          "type": "object",
+          "properties": {
+            "b1": {
+              "type": "string"
+            },
+            "b2": {
+              "type": "string"
+            },
+            "b3": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "b1",
+            "b2",
+            "b3"
+          ],
+          "additionalProperties": false,
+          "default": {
+            "b1": "bg-sky-200",
+            "b2": "bg-cyan-200",
+            "b3": "bg-blue-200"
+          }
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "publishDate"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

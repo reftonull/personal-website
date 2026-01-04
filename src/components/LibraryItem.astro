@@ -10,9 +10,8 @@ const { item, isBook } = Astro.props;
             src={item.image}
             alt={item.title}
             width={320}
-            aspectRatio={isBook ? 2 / 3 : 1 / 1}
+            height={isBook ? 480 : 320}
             class="rounded-lg pb-1"
-            inferSize
         />
         <div class="pl-1 font-semibold text-lg leading-tight">{item.title}</div>
         <div class="pl-1">{item.authors}</div>

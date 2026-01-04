@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/Post.astro
 title: "SwiftUI API Design: Sheet II"
 subtitle: "In this part, we create a new initializer for the sheet that takes an `item` instead of a `isPresented` binding. We also run into some trouble along the way, and do a deep dive on how SwiftUI works."
 colors: { b1: "bg-sky-200", b2: "bg-cyan-200", b3: "bg-blue-200" }

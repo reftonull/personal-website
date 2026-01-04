@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/Post.astro
 title: "SwiftUI API Design: Sheet I"
 subtitle: "This series of posts will take you through not only how to make a sheet modifier in SwiftUI, but also how to think about SwiftUI API design, and how Apple seems to approach it. Along the way, I'll show you a few fun SwiftUI tricks that can help make your code more modular and more readable!"
 colors: { b1: "bg-sky-200", b2: "bg-cyan-200", b3: "bg-blue-200" }

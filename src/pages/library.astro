@@ -3,9 +3,9 @@ import Blobs from "../components/Blobs.astro";
 import LibraryItem from "../components/LibraryItem.astro";
 import Layout from "../layouts/Layout.astro";
 
-const books = await Astro.glob("../library/books/*.md");
-const podcasts = await Astro.glob("../library/podcasts/*.md");
-const youtube = await Astro.glob("../library/youtube/*.md");
+const books = Object.values(import.meta.glob("../library/books/*.md", { eager: true }));
+const podcasts = Object.values(import.meta.glob("../library/podcasts/*.md", { eager: true }));
+const youtube = Object.values(import.meta.glob("../library/youtube/*.md", { eager: true }));
 ---
 
 <Layout title="Library" description="This is what I'm reading, listening to, and watching right now!">

@@ -1,12 +1,11 @@
 import { defineConfig } from "astro/config";
 
 // https://astro.build/config
-import tailwind from "@astrojs/tailwind";
-
-// https://astro.build/config
 import mdx from "@astrojs/mdx";
 import rehypeRewrite from "rehype-rewrite";
 import remarkGfm from "remark-gfm";
+import tailwindcss from "@tailwindcss/vite";
+import icon from "astro-icon";
 
 import type { Root, Element } from "hast";
 
@@ -22,8 +21,11 @@ export default defineConfig({
     markdown: {
         drafts: true,
     },
+    vite: {
+        plugins: [tailwindcss()],
+    },
     integrations: [
-        tailwind(),
+        icon(),
         mdx({
             remarkPlugins: [remarkGfm],
             rehypePlugins: [

@@ -24,6 +24,8 @@ import { Modal } from "accessible-astro-components";
 </Modal>
 
 <style is:global>
+    @reference "tailwindcss";
+
     .modal__inner {
         @apply border-0;
         width: clamp(30ch, 90%, 100ch);

@@ -2,7 +2,7 @@
 import { Image } from "astro:assets";
 import Blobs from "../components/Blobs.astro";
 import Layout from "./Layout.astro";
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 
 import github from "../images/github-mark.png";
 
@@ -95,6 +95,8 @@ const { frontmatter } = Astro.props;
 </Layout>
 
 <style is:global>
+    @reference "tailwindcss";
+
     .md-heading {
         @apply flex sm:-ml-16 flex-col sm:flex-row mb-2 pt-4;
         gap: 1.5rem;

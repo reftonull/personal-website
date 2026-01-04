@@ -1,9 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Blobs from "../components/Blobs.astro";
+import { getCollection } from "astro:content";
 
-const projects = await Astro.glob("./projects/*.mdx");
-const nonDraftProjects = projects.filter((project) => !project.frontmatter.draft);
+const allProjects = await getCollection("projects");
+const nonDraftProjects = allProjects.filter((project) => !project.data.draft);
 ---
 
 <Layout
@@ -22,33 +23,33 @@ const nonDraftProjects = projects.filter((project) => !project.frontmatter.draft
   <div class="flex flex-col gap-32 pt-12">
     {
       nonDraftProjects.map((project, index) => (
-        <a href={project.url}>
+        <a href={`/projects/${project.slug}/`}>
           <article class="grid grid-cols-1 sm:grid-cols-3 gap-6">
             <div class="flex flex-col sm:col-span-2 grid-rows-none self-center">
               <div class="grid grid-cols-5 border-b border-black">
                 <div class="col-span-4 pt-6 pr-6 pb-6 border-r border-black">
                   <h1 class="font-superior md:text-5xl text-3xl">
-                    {project.frontmatter.title}
+                    {project.data.title}
                   </h1>
                 </div>
                 <div class="text-2xl self-center text-center">{index + 1}</div>
               </div>
               <div class="grid grid-cols-5">
                 <div class="col-span-3 font-thin border-r border-black pt-3 pr-4 pb-2">
-                  {project.frontmatter.description}
+                  {project.data.description}
                 </div>
                 <div class="col-span-2 font-thin pt-3 px-4 pb-2">
                   <>
                     <span class="font-bold">Stack</span>
                     <br />
                   </>
-                  {project.frontmatter.stack}
+                  {project.data.stack}
                 </div>
               </div>
             </div>
 
             <img
-              src={project.frontmatter.image}
+              src={project.data.image}
               alt="Image"
               class="full-width-thumb m-auto mix-blend-normal rounded-2xl bg-blend-normal object-cover"
             />
